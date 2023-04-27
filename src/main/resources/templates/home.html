@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html th:replace="~{fragments/app :: layout(~{::title}, ~{::main})}" xmlns:th="http://www.thymeleaf.org">
+
+<title>Home - My Site with Spting Boot</title>
+
+<th:block th:fragment="main" th:insert="~{fragments/list-posts}"></th:block>
+
+</html>

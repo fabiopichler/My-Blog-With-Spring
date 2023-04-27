@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark"
+     xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <div class="container-fluid container-lg">
+        <a class="navbar-brand" th:href="@{/}">My Site</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Home</a>
+                </li>
+            </ul>
+
+            <form th:action="@{/search}" method="get" class="d-flex me-3" role="search">
+                <div class="input-group input-group-sm">
+                    <input name="q" type="search" class="form-control" placeholder="Pesquisar"
+                           aria-label="Pesquisar" aria-describedby="button-addon2" th:value="${search_q} ?: ''">
+
+                    <button class="btn btn-outline-success" type="submit" id="button-addon2">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </form>
+
+            <a sec:authorize="isAuthenticated()" class="btn btn-success btn-sm me-3" th:href="@{/post/new}">
+                Novo Post
+            </a>
+
+            <ul class="navbar-nav mb-2 mb-md-0">
+                <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user fa-sm"></i> <span th:text="${authUser.name}"></span>
+                    </a>
+
+                    <ul class="dropdown-menu shadow-sm">
+                        <li>
+                            <a class="dropdown-item" th:href="@{|/user/${authUser.username}|}">
+                                <i class="fa-solid fa-user fa-sm"></i> <span>Meu perfil</span>
+                            </a>
+                        </li>
+
+                        <li><hr class="dropdown-divider"></li>
+
+                        <li>
+                            <button class="dropdown-item" onclick="userLogout()">
+                                <i class="fa-solid fa-right-from-bracket fa-sm"></i> Logout
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+
+                <th:block sec:authorize="not isAuthenticated()">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/login}">
+                            <i class="fa-solid fa-right-to-bracket fa-sm"></i> Login
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/register}">
+                            <i class="fa-solid fa-user-plus fa-sm"></i> Registrar
+                        </a>
+                    </li>
+                </th:block>
+            </ul>
+        </div>
+    </div>
+</nav>

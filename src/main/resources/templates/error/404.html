@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html th:replace="~{fragments/app :: layout(~{::title}, ~{::main})}" xmlns:th="http://www.thymeleaf.org">
+
+<title>Erro 404 - Not Found</title>
+
+<th:block th:fragment="main">
+    <div class="card mb-3">
+        <div class="card-body">
+            <h2>Erro 404</h2>
+
+            <p class="mb-1">O conteúdo não foi encontrado</p>
+
+            <p class="mb-0">
+                <a th:href="@{/}">Voltar para o início</a>
+            </p>
+        </div>
+    </div>
+</th:block>
+</html>

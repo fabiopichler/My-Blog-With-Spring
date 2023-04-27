@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br" th:fragment="layout (title, content)"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title th:replace="${title}"></title>
+
+    <!-- Styles -->
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.min.css} "/>
+    <link th:href="@{/css/app.css}" th:rel="stylesheet">
+</head>
+
+<body class="h-100 d-flex flex-column p-0">
+    <script>
+        function userLogout() { document.getElementById('form-logout').submit(); }
+    </script>
+
+    <form th:action="@{/logout}" method="POST" id="form-logout"></form>
+
+    <header class="mb-3 shadow">
+        <th:block th:insert="~{fragments/main-menu}"></th:block>
+    </header>
+
+    <th:block th:if="${oneColumn}">
+        <main th:insert="${content}" class="h-100"></main>
+    </th:block>
+
+    <th:block th:unless="${oneColumn}">
+        <div class="container-fluid container-lg">
+            <div class="row">
+                <main th:insert="${content}" class="col-md-8"></main>
+
+                <aside th:insert="~{fragments/sidebar}" class="col-md-4"></aside>
+            </div>
+        </div>
+    </th:block>
+
+    <footer class="mt-auto py-4 px-3 text-center text-white bg-secondary shadow">
+        <span>Desenvolvido com Java e Spring Boot</span>
+        <br>
+        <span>Copyright &copy; 2023, <a href="https://fabiopichler.net" target="_blank" class="link-light">Fábio Pichler</a></span>
+    </footer>
+
+    <!-- Scripts -->
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/app.js}" defer></script>
+</body>
+</html>

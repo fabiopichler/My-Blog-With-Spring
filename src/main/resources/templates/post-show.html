@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html th:replace="~{fragments/app :: layout(~{::title}, ~{::main})}" xmlns:th="http://www.thymeleaf.org">
+
+<title th:text="${post.title}"></title>
+
+<th:block th:fragment="main">
+    <div class="article card mb-3">
+        <div class="card-body pb-0">
+            <h3 class="mb-3 fw-light">
+                <a th:href="@{|/post/${post.postname}|}"
+                   th:text="${post.title}"
+                   class="link-primary"
+                ></a>
+            </h3>
+
+            <small class="d-block text-secondary mb-3">
+                <span class="me-3">
+                    <i class="fa-solid fa-calendar-days fa-sm"></i>
+
+                    <time th:text="${post.createdAtFormatted}"></time>
+                </span>
+
+                <span class="me-3">
+                    <i class="fa-solid fa-comments fa-sm"></i>
+
+                    <span th:text="${post.commentsCount}"></span>
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-user fa-sm"></i>
+
+                    <a th:href="@{|/user/${post.user.username}|}" th:text="${post.user.name}" class="link-secondary"></a>
+                </span>
+            </small>
+
+            <div th:utext="${post.body}" class="content"></div>
+
+            <div class="mt-3"></div>
+        </div>
+
+        <div class="card-footer clearfix">
+            <div class="small text-secondary float-start">
+                Atualizado em
+                <time th:text="${post.updatedAtFormatted}"></time>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:insert="~{fragments/comments}"></th:block>
+</th:block>
+</html>

@@ -1,0 +1,51 @@
+
+<th:block th:each="post : ${posts}" xmlns:th="http://www.thymeleaf.org">
+    <div class="card mb-3">
+        <div class="card-body pb-0">
+            <small class="d-block text-secondary mb-3">
+                <span class="me-3">
+                    <i class="fa-solid fa-calendar-days fa-sm"></i>
+
+                    <time th:text="${post.createdAtFormatted}"></time>
+                </span>
+
+                <span class="me-3">
+                    <i class="fa-solid fa-comments fa-sm"></i>
+
+                    <span th:text="${post.commentsCount}"></span>
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-user fa-sm"></i>
+
+                    <a th:href="@{|/user/${post.user.username}|}" th:text="${post.user.name}" class="link-secondary"></a>
+                </span>
+            </small>
+
+            <h4 class="mb-3 fw-light">
+                <a th:href="@{|/post/${post.postname}|}"
+                   th:text="${post.title}"
+                   class="link-primary"
+                ></a>
+            </h4>
+
+            <div th:utext="${post.body}"></div>
+
+            <div class="mt-3"></div>
+        </div>
+
+        <div class="card-footer clearfix py-1">
+            <div class="small text-secondary float-start">
+                Atualizado em <time th:text="${post.updatedAtFormatted}"></time>
+            </div>
+
+            <div class="float-end">
+                <a th:href="@{|/post/${post.postname}|}">Continue lendo...</a>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<div class="d-flex justify-content-center" xmlns:th="http://www.thymeleaf.org">
+    <th:block th:insert="~{fragments/pageable}"></th:block>
+</div>

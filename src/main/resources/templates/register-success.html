@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html th:replace="~{fragments/app :: layout(title=~{::title}, content=~{::main}, oneColumn=true)}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<title>Registro concluído</title>
+
+<div th:fragment="main" class="h-100 d-flex justify-content-center align-items-center">
+    <div class="card mb-3">
+        <div class="card-header">
+            <h4 class="mb-0">Registro concluído</h4>
+        </div>
+
+        <div class="card-body">
+            O registro foi concluído, agora você pode <a th:href="@{/login}">fazer o login</a> usando seu nome de usuário e senha.
+        </div>
+    </div>
+</div>
+</html>

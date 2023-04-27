@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html th:replace="~{fragments/app :: layout(~{::title}, ~{::main})}" xmlns:th="http://www.thymeleaf.org">
+
+<title>Novo Post</title>
+
+<th:block th:fragment="main">
+    <form th:action="@{/post/new}" th:object="${post}" method="POST" class="card mb-3">
+        <div class="card-header">
+            <h5 class="mb-0"><i class="fa-regular fa-file-lines text-secondary"></i> Novo post</h5>
+        </div>
+
+        <div class="card-body">
+            <div class="form-floating mb-3">
+                <input type="text" name="title" class="form-control" id="title" placeholder="Título">
+
+                <label for="title">Título</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" name="postname" class="form-control" id="postname" placeholder="Post name">
+
+                <label for="postname">Post name</label>
+            </div>
+
+            <div class="form-floating">
+                <textarea name="body" class="form-control"
+                          placeholder="Conteúdo da postagem" id="body" style="height: 100px"></textarea>
+
+                <label for="body">Conteúdo da postagem</label>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="d-flex flex-colunm">
+                <div class="ms-auto">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</th:block>
+</html>

@@ -1,0 +1,16 @@
+
+<nav th:if="${totalPages > 1}" xmlns:th="http://www.thymeleaf.org" aria-label="Page navigation">
+    <ul class="pagination">
+        <th:block th:each="i: ${#numbers.sequence(1, totalPages)}">
+            <li th:if="${currentPage != i}" class="page-item">
+                <a class="page-link" th:href="@{${baseUrlPagination} + 'index=' + ${i}}">
+                    [[${i}]]
+                </a>
+            </li>
+
+            <li th:unless="${currentPage != i}" class="page-item active">
+                <span class="page-link">[[${i}]]</span>
+            </li>
+        </th:block>
+    </ul>
+</nav>

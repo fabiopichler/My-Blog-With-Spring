@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html th:replace="~{fragments/app :: layout(title=~{::title}, content=~{::main}, oneColumn=true)}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<title>Registrar-se</title>
+
+<div th:fragment="main" class="h-100 d-flex justify-content-center align-items-center">
+    <form th:action="@{/register}" method="POST" class="register-form card mb-3 w-100">
+        <div class="card-header">
+            <h5 class="mb-0"><i class="fa-solid fa-user-plus text-secondary"></i> Registrar-se</h5>
+        </div>
+
+        <div class="card-body">
+            <div th:if="${errorMessage}" class="alert alert-danger d-flex align-items-center" role="alert">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <div class="ms-2">Erro: [[${errorMessage}]]</div>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input th:value="${user?.name}" type="text" id="name" name="name"
+                       class="form-control" placeholder="Name" required>
+
+                <label for="name">Nome</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input th:value="${user?.username}" type="text" id="username" name="username"
+                       class="form-control" placeholder="Username" required>
+
+                <label for="username">Nome de usuário</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input th:value="${user?.email}" type="email" id="email" name="email"
+                       class="form-control" placeholder="E-mail" required>
+
+                <label for="email">Endereço de E-mail</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+
+                <label for="password">Senha de usuário</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="password" id="password-repeat" name="passwordRepeat"
+                       class="form-control" placeholder="Password repeat" required>
+
+                <label for="password-repeat">Repetir a senha</label>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="d-flex flex-colunm align-items-center justify-content-between">
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" name="remember-me" value="" id="flexCheckDefault">
+
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Concordo com os termos
+                    </label>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">Registrar-se</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</html>
