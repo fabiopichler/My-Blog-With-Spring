@@ -25,50 +25,44 @@ SOFTWARE.
 package net.fabiopichler.myblogwithspring.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
-public class CommentDTO {
+public class PostDto {
 
-    private Long postId;
+    @NotBlank(message = "postname may not be blank")
+    @Size(min = 2, max = 60, message = "postname must be between 2 and 60 characters long")
+    private String postname;
 
-    private String authorName;
-
-    private String authorEmail;
+    @NotBlank(message = "title may not be blank")
+    @Size(min = 2, max = 60, message = "title must be between 2 and 60 characters long")
+    private String title;
 
     @NotBlank(message = "body may not be blank")
     private String body;
 
-    public CommentDTO() {
+    public PostDto() {
     }
 
-    public CommentDTO(Long postId, String authorName, String authorEmail, String body) {
-        this.postId = postId;
-        this.authorName = authorName;
-        this.authorEmail = authorEmail;
+    public PostDto(String postname, String title, String body) {
+        this.postname = postname;
+        this.title = title;
         this.body = body;
     }
 
-    public Long getPostId() {
-        return postId;
+    public String getPostname() {
+        return postname;
     }
 
-    public void setPostId(Long postId) {
-        this.postId = postId;
+    public void setPostname(String postname) {
+        this.postname = postname;
     }
 
-    public String getAuthorName() {
-        return authorName;
+    public String getTitle() {
+        return title;
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
-    }
-
-    public String getAuthorEmail() {
-        return authorEmail;
-    }
-
-    public void setAuthorEmail(String authorEmail) {
-        this.authorEmail = authorEmail;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getBody() {

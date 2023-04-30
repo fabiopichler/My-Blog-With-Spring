@@ -24,7 +24,7 @@ SOFTWARE.
 
 package net.fabiopichler.myblogwithspring.service.impl;
 
-import net.fabiopichler.myblogwithspring.dto.CommentDTO;
+import net.fabiopichler.myblogwithspring.dto.CommentDto;
 import net.fabiopichler.myblogwithspring.model.Comment;
 import net.fabiopichler.myblogwithspring.model.Post;
 import net.fabiopichler.myblogwithspring.model.User;
@@ -40,14 +40,14 @@ public class CommentServiceImpl implements CommentService {
     private CommentRepository repository;
 
     @Override
-    public Comment add(CommentDTO commentDTO, Post post, User user) {
+    public Comment add(CommentDto commentDto, Post post, User user) {
         var comment = new Comment();
 
         comment.setPost(post);
         comment.setUser(user);
-        comment.setAuthorName(user != null ? user.getName() : commentDTO.getAuthorName());
-        comment.setAuthorEmail(user != null ? user.getEmail() : commentDTO.getAuthorEmail());
-        comment.setBody(commentDTO.getBody());
+        comment.setAuthorName(user != null ? user.getName() : commentDto.getAuthorName());
+        comment.setAuthorEmail(user != null ? user.getEmail() : commentDto.getAuthorEmail());
+        comment.setBody(commentDto.getBody());
 
         return repository.save(comment);
     }

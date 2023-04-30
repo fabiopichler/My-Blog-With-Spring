@@ -24,12 +24,12 @@ SOFTWARE.
 
 package net.fabiopichler.myblogwithspring.service;
 
-import net.fabiopichler.myblogwithspring.dto.CommentDTO;
+import net.fabiopichler.myblogwithspring.dto.CommentDto;
 import net.fabiopichler.myblogwithspring.model.Comment;
 import net.fabiopichler.myblogwithspring.model.Post;
 import net.fabiopichler.myblogwithspring.model.User;
 
 public interface CommentService {
 
-    Comment add(CommentDTO commentDTO, Post post, User user);
+    Comment add(CommentDto commentDto, Post post, User user);
 }

@@ -24,7 +24,7 @@ SOFTWARE.
 
 package net.fabiopichler.myblogwithspring.service.impl;
 
-import net.fabiopichler.myblogwithspring.dto.PostDTO;
+import net.fabiopichler.myblogwithspring.dto.PostDto;
 import net.fabiopichler.myblogwithspring.model.Post;
 import net.fabiopichler.myblogwithspring.model.User;
 import net.fabiopichler.myblogwithspring.repository.PostRepository;
@@ -62,13 +62,13 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post add(PostDTO postDTO, User user) {
+    public Post add(PostDto postDto, User user) {
         var post = new Post();
 
         post.setUser(user);
-        post.setPostname(postDTO.getPostname());
-        post.setTitle(postDTO.getTitle());
-        post.setBody(postDTO.getBody());
+        post.setPostname(postDto.getPostname());
+        post.setTitle(postDto.getTitle());
+        post.setBody(postDto.getBody());
 
         return repository.save(post);
     }

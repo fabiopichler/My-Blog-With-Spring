@@ -24,7 +24,7 @@ SOFTWARE.
 
 package net.fabiopichler.myblogwithspring.service;
 
-import net.fabiopichler.myblogwithspring.dto.PostDTO;
+import net.fabiopichler.myblogwithspring.dto.PostDto;
 import net.fabiopichler.myblogwithspring.model.Post;
 import net.fabiopichler.myblogwithspring.model.User;
 import org.springframework.data.domain.Page;
@@ -39,7 +39,7 @@ public interface PostService {
 
     Page<Post> searchPaginated(String body, int page, int size);
 
-    Post add(PostDTO postDTO, User user);
+    Post add(PostDto postDto, User user);
 
     Post findById(Long id);
 

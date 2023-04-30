@@ -27,7 +27,7 @@ package net.fabiopichler.myblogwithspring.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public class UserCreationDTO {
+public class UserCreationDto {
 
     @NotBlank(message = "Name may not be blank")
     @Size(min = 2, max = 20, message = "Name must be between 2 and 20 characters long")
@@ -49,10 +49,10 @@ public class UserCreationDTO {
     @Size(min = 2, max = 20, message = "Name must be between 2 and 20 characters long")
     private String passwordRepeat;
 
-    public UserCreationDTO() {
+    public UserCreationDto() {
     }
 
-    public UserCreationDTO(String name, String username, String email, String password, String passwordRepeat) {
+    public UserCreationDto(String name, String username, String email, String password, String passwordRepeat) {
         this.name = name;
         this.username = username;
         this.email = email;

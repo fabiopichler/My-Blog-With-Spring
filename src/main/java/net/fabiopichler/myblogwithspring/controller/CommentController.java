@@ -25,7 +25,7 @@ SOFTWARE.
 package net.fabiopichler.myblogwithspring.controller;
 
 import jakarta.validation.Valid;
-import net.fabiopichler.myblogwithspring.dto.CommentDTO;
+import net.fabiopichler.myblogwithspring.dto.CommentDto;
 import net.fabiopichler.myblogwithspring.model.Comment;
 import net.fabiopichler.myblogwithspring.model.Post;
 import net.fabiopichler.myblogwithspring.model.User;
@@ -46,9 +46,9 @@ public class CommentController {
     private PostService postService;
 
     @PostMapping("/comments/new")
-    public String store(@Valid CommentDTO commentDTO, @ModelAttribute("authUser") User authUser) {
-        Post post = postService.findById(commentDTO.getPostId());
-        Comment comment = commentService.add(commentDTO, post, authUser);
+    public String store(@Valid CommentDto commentDto, @ModelAttribute("authUser") User authUser) {
+        Post post = postService.findById(commentDto.getPostId());
+        Comment comment = commentService.add(commentDto, post, authUser);
 
         return "redirect:/post/" + post.getPostname() + "#comment_" + comment.getId();
     }

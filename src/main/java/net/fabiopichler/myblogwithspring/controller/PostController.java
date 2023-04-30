@@ -25,16 +25,14 @@ SOFTWARE.
 package net.fabiopichler.myblogwithspring.controller;
 
 import jakarta.validation.Valid;
-import net.fabiopichler.myblogwithspring.dto.PostDTO;
+import net.fabiopichler.myblogwithspring.dto.PostDto;
 import net.fabiopichler.myblogwithspring.model.Post;
-import net.fabiopichler.myblogwithspring.model.Principal;
 import net.fabiopichler.myblogwithspring.model.User;
 import net.fabiopichler.myblogwithspring.service.PostService;
 import net.fabiopichler.myblogwithspring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -100,8 +98,8 @@ public class PostController {
 
     @PostMapping("/post/new")
     @PreAuthorize("hasRole('ADMIN')")
-    public String store(@Valid PostDTO postDTO, @ModelAttribute("authUser") User authUser) {
-        Post post = postService.add(postDTO, authUser);
+    public String store(@Valid PostDto postDto, @ModelAttribute("authUser") User authUser) {
+        Post post = postService.add(postDto, authUser);
 
         return "redirect:/post/" + post.getPostname();
     }

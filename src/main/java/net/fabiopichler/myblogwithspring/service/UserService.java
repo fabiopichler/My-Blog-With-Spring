@@ -24,7 +24,7 @@ SOFTWARE.
 
 package net.fabiopichler.myblogwithspring.service;
 
-import net.fabiopichler.myblogwithspring.dto.UserCreationDTO;
+import net.fabiopichler.myblogwithspring.dto.UserCreationDto;
 import net.fabiopichler.myblogwithspring.model.Principal;
 import net.fabiopichler.myblogwithspring.model.User;
 
@@ -36,5 +36,5 @@ public interface UserService {
 
     User findByPrincipal(Principal principal);
 
-    User add(UserCreationDTO userDTO);
+    User add(UserCreationDto userDto);
 }

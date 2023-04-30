@@ -25,7 +25,7 @@ SOFTWARE.
 package net.fabiopichler.myblogwithspring.controller;
 
 import jakarta.validation.Valid;
-import net.fabiopichler.myblogwithspring.dto.UserCreationDTO;
+import net.fabiopichler.myblogwithspring.dto.UserCreationDto;
 import net.fabiopichler.myblogwithspring.exceptions.UserCreationException;
 import net.fabiopichler.myblogwithspring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,11 +65,11 @@ public class AuthController {
 
     @PostMapping("/register")
     @PreAuthorize("not isAuthenticated()")
-    public String store(Model model, @Valid UserCreationDTO userDTO) {
+    public String store(Model model, @Valid UserCreationDto userDto) {
         try {
-            userService.add(userDTO);
+            userService.add(userDto);
         } catch (UserCreationException e) {
-            model.addAttribute("user", userDTO);
+            model.addAttribute("user", userDto);
             model.addAttribute("errorMessage", e.getMessage());
 
             return "register";

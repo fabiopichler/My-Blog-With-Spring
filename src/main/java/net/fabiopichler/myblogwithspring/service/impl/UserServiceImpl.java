@@ -24,7 +24,7 @@ SOFTWARE.
 
 package net.fabiopichler.myblogwithspring.service.impl;
 
-import net.fabiopichler.myblogwithspring.dto.UserCreationDTO;
+import net.fabiopichler.myblogwithspring.dto.UserCreationDto;
 import net.fabiopichler.myblogwithspring.exceptions.UserCreationException;
 import net.fabiopichler.myblogwithspring.model.Principal;
 import net.fabiopichler.myblogwithspring.model.User;
@@ -64,22 +64,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User add(UserCreationDTO userDTO) {
-        if (!userDTO.getPassword().equals(userDTO.getPasswordRepeat()))
+    public User add(UserCreationDto userDto) {
+        if (!userDto.getPassword().equals(userDto.getPasswordRepeat()))
             throw new UserCreationException("As senhas não são iguais");
 
-        if (repository.existsByUsername(userDTO.getUsername()))
+        if (repository.existsByUsername(userDto.getUsername()))
             throw new UserCreationException("O nome de usuário já existe");
 
-        if (repository.existsByEmail(userDTO.getEmail()))
+        if (repository.existsByEmail(userDto.getEmail()))
             throw new UserCreationException("O e-mail já está cadastrado");
 
         var user = new User();
 
-        user.setName(userDTO.getName());
-        user.setUsername(userDTO.getUsername());
-        user.setEmail(userDTO.getEmail());
-        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        user.setName(userDto.getName());
+        user.setUsername(userDto.getUsername());
+        user.setEmail(userDto.getEmail());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
         return repository.save(user);
     }
