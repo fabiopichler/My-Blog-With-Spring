@@ -54,7 +54,7 @@ public class User {
     @NotBlank
     private String password;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     @NotBlank
     private String name;
 
