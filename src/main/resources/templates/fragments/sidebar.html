@@ -11,44 +11,44 @@
         <div class="social">
             <div class="d-flex flex-column justify-content-center fw-bold">
                 <span class="mb-2">
-                    <a href="https://mastodon.social" title="Perfil no Mastodon" target="_blank" class="">
+                    <a href="https://mastodon.social" title="Perfil no Mastodon" rel="nofollow me" target="_blank" class="">
                         <i class="fa-brands fa-mastodon mastodon me-1"></i> Mastodon
                     </a>
                 </span>
 
                 <span class="mb-2">
-                    <a href="https://twitter.com" title="Perfil no Twitter" target="_blank" class="">
+                    <a href="https://twitter.com" title="Perfil no Twitter" rel="nofollow me" target="_blank" class="">
                         <i class="fa-brands fa-twitter twitter me-1"></i> Twitter
                     </a>
                 </span>
 
                 <span class="mb-2">
-                    <a href="https://github.com" title="Perfil no GitHub" target="_blank" class="">
+                    <a href="https://github.com" title="Perfil no GitHub" rel="nofollow me" target="_blank" class="">
                         <i class="fa-brands fa-github github me-1"></i> GitHub
                     </a>
                 </span>
 
                 <span class="mb-2">
                     <a href="https://www.linkedin.com" title="Perfil no LinkedIn"
-                       target="_blank" class="">
+                       rel="nofollow me" target="_blank" class="">
                         <i class="fa-brands fa-linkedin linkedin me-1"></i> LinkedIn
                     </a>
                 </span>
 
                 <span class="mb-2">
-                    <a href="https://www.instagram.com" title="Perfil no Instagram" target="_blank" class="">
+                    <a href="https://www.instagram.com" title="Perfil no Instagram" rel="nofollow me" target="_blank" class="">
                         <i class="fa-brands fa-instagram instagram me-1"></i> Instagram
                     </a>
                 </span>
 
                 <span class="mb-2">
-                    <a href="https://www.facebook.com" title="Perfil no Facebook" target="_blank" class="">
+                    <a href="https://www.facebook.com" title="Perfil no Facebook" rel="nofollow me" target="_blank" class="">
                         <i class="fa-brands fa-facebook facebook me-1"></i> Facebook
                     </a>
                 </span>
 
                 <span class="">
-                    <a href="https://www.youtube.com" title="Perfil no YouTube" target="_blank" class="">
+                    <a href="https://www.youtube.com" title="Perfil no YouTube" rel="nofollow me" target="_blank" class="">
                         <i class="fa-brands fa-youtube youtube me-1"></i> YouTube
                     </a>
                 </span>
@@ -77,6 +77,10 @@
             </small>
         </div>
 
+        <div th:if="${lastPosts.size()} == 0" class="text-center fw-bold">
+            Ainda não há posts para exibir
+        </div>
+
         <div class="mt-3"></div>
     </div>
 </section>
@@ -90,15 +94,15 @@
     </div>
 
     <div class="card-body text-secondary">
-        » <a href="https://fabiopichler.net" target="_blank">Fábio Pichler</a>
+        » <a href="https://fabiopichler.net" rel="nofollow me" target="_blank">Fábio Pichler</a>
         <br>
-        » <a href="https://openjdk.org" target="_blank">OpenJDK</a>
+        » <a href="https://openjdk.org" rel="nofollow" target="_blank">OpenJDK</a>
         <br>
-        » <a href="https://spring.io" target="_blank">Spring Boot</a>
+        » <a href="https://spring.io" rel="nofollow" target="_blank">Spring Boot</a>
         <br>
-        » <a href="https://start.spring.io" target="_blank">Spring Initializr</a>
+        » <a href="https://start.spring.io" rel="nofollow" target="_blank">Spring Initializr</a>
         <br>
-        » <a href="https://www.thymeleaf.org" target="_blank">Thymeleaf</a>
+        » <a href="https://www.thymeleaf.org" rel="nofollow" target="_blank">Thymeleaf</a>
     </div>
 </section>
 

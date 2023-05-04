@@ -3,6 +3,12 @@
 
 <title>Home - My Site with Spting Boot</title>
 
-<th:block th:fragment="main" th:insert="~{fragments/list-posts}"></th:block>
+<th:block th:if="${posts.size()} > 0" th:fragment="main" th:insert="~{fragments/list-posts}"></th:block>
+
+<div th:if="${posts.size()} == 0" th:fragment="main" class="card">
+    <div class="card-body p-5">
+        <div class="h4 m-0 text-center text-secondary">Ainda não há posts para exibir</div>
+    </div>
+</div>
 
 </html>
